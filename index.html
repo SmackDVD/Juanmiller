@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cat Clash — prototype v0.3.1</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= TITLE ================= -->
+<section id="scr-title" class="screen">
+  <div class="panel titlePanel">
+    <img id="titleCat" class="titleCat" alt="cat">
+    <div class="gameTitle">CAT CLASH</div>
+    <p class="tag">a tug-of-war cat defense saga · prototype v0.3.1</p>
+    <div class="menuBtns">
+      <button class="go" id="btnPlay">▶ PLAY</button>
+      <button class="go alt" id="btnCats">🐱 CAT BASE</button>
+    </div>
+    <div class="coinChip" style="margin:0 auto;display:table">💰 <span class="coinVal">0</span></div>
+  </div>
+</section>
+
+<!-- ================= WORLDS ================= -->
+<section id="scr-worlds" class="screen hidden">
+  <div class="topBar">
+    <button class="sideBtn" data-nav="title">⬅ TITLE</button>
+    <div class="barTitle">WORLDS</div>
+    <div class="coinChip">💰 <span class="coinVal">0</span></div>
+  </div>
+  <div id="worldList" class="worldList"></div>
+  <p class="footHint">Beat every level of a world to unlock the next one.</p>
+</section>
+
+<!-- ================= LEVELS ================= -->
+<section id="scr-levels" class="screen hidden">
+  <div class="topBar">
+    <button class="sideBtn" data-nav="worlds">⬅ WORLDS</button>
+    <div class="barTitle" id="lvlWorldName">WORLD</div>
+    <div class="coinChip">💰 <span class="coinVal">0</span></div>
+  </div>
+  <p id="lvlDesc" class="lvlDesc"></p>
+  <div id="levelGrid" class="levelGrid"></div>
+</section>
+
+<!-- ================= CAT BASE ================= -->
+<section id="scr-cats" class="screen hidden">
+  <div class="topBar">
+    <button class="sideBtn" data-nav="title">⬅ TITLE</button>
+    <div class="barTitle">CAT BASE</div>
+    <div class="coinChip">💰 <span class="coinVal">0</span></div>
+  </div>
+  <div class="catsWrap">
+    <div id="roster" class="roster"></div>
+    <div id="catDetail" class="catDetail"></div>
+  </div>
+</section>
+
+<!-- ================= BATTLE ================= -->
+<section id="scr-battle" class="screen hidden">
+  <h1><img id="battleLogo" alt=""> CAT CLASH <small id="stageTag">W1-1</small></h1>
+  <div id="hud">
+    <div class="box">
+      <div><span id="money">100</span><span id="moneyCap"> /300</span></div>
+      <div id="rate">+5.0/s</div>
+    </div>
+    <button id="walletBtn" class="sideBtn" title="Upgrade: raises money rate & cap (W)">💼 WALLET+<small id="walletCost">$50</small></button>
+    <button id="speedBtn" class="sideBtn" title="Toggle game speed (F)">⏩ ×1</button>
+    <button id="resetBtn" class="sideBtn" title="Restart this stage">↺ RESET</button>
+    <button id="quitBtn" class="sideBtn" title="Back to level select (no reward)">⬅ LEVELS</button>
+    <div id="hpBox" class="box">
+      <div class="barRow"><span>YOUR BASE</span><div class="track"><div class="fill" id="pHp"></div></div></div>
+      <div class="barRow"><span>ENEMY BASE</span><div class="track"><div class="fill" id="eHp"></div></div></div>
+    </div>
+  </div>
+  <div id="cvsWrap">
+    <canvas id="cvs" width="960" height="420"></canvas>
+    <div id="banner"></div>
+    <div id="startOverlay" class="overlay">
+      <h2 id="soStage">WORLD 1</h2>
+      <p id="soDesc"></p>
+      <div id="soEnemies"></div>
+      <p style="font-size:12px">Hotkeys: <b>1–5</b> deploy · <b>C</b> cannon · <b>W</b> wallet · <b>F</b> speed</p>
+      <button class="go" id="startBtn">DEFEND! ▶</button>
+    </div>
+    <div id="endOverlay" class="overlay hidden">
+      <h2 id="endTitle">VICTORY!</h2>
+      <p id="endInfo"></p>
+      <div class="endBtns">
+        <button class="go" id="endA">CONTINUE ▶</button>
+        <button class="go alt2" id="endB">↺ RETRY</button>
+        <button class="go alt" id="endC">🐱 CAT BASE</button>
+      </div>
+    </div>
+  </div>
+  <div id="bar"></div>
+  <div id="hint">Keys: 1–5 deploy · C cannon · W wallet · F speed · upgrades happen in CAT BASE</div>
+</section>
+
+<div id="toasts"></div>
+<script src="game.js"></script>
+</body>
+</html>
