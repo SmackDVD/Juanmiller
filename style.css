@@ -1,6 +1,6 @@
-:root{--panel:#232742;--border:#39406b;--gold:#ffd23e}
+:root{--panel:#273ea5;--border:#8eddff;--gold:#ffd23e}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#171a26;color:#e8eaf2;font-family:system-ui,"Segoe UI",Roboto,sans-serif;
+body{background:#172026;color:#e8eaf2;font-family:system-ui,"Segoe UI",Roboto,sans-serif;
      display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:16px 10px;user-select:none}
 button{font-family:inherit;color:inherit;cursor:pointer;border:none}
 .screen{width:min(960px,100%)}
